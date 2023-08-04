@@ -22,7 +22,7 @@ public class AdminUpdatesOwnerDetailsSteps {
   @Given("there is an existing owner")
   public void there_is_an_existing_owner() {
     owner = new Owner("OwnerID", "OwnerName", "OwnerEmail", "OwnerPhone", "OwnerLocation");
-    admin.addOwner(owner); // This method needs to be implemented in the Admin class
+    admin.addOwner(owner); 
     assertTrue(admin.getOwners().contains(owner));
   }
 
@@ -31,7 +31,6 @@ public class AdminUpdatesOwnerDetailsSteps {
     owner.setName("NewName");
     owner.setUserName("NewEmail");
     owner.setPhone("NewPhone");
-    // You might need to add a method in the Admin class to update the owner's details in the system
   }
 
   @Then("the owner's details should be updated in the system")
@@ -39,6 +38,5 @@ public class AdminUpdatesOwnerDetailsSteps {
     assertEquals("NewName", owner.getName());
     assertEquals("NewEmail", owner.getUserName());
     assertEquals("NewPhone", owner.getPhone());
-    // You might need to add more assertions here to check that the owner's details have been updated in the system
   }
 }

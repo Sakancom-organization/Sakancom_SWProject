@@ -22,7 +22,7 @@ public class AdminAddsOwnerSteps {
   @When("I add a new owner with details")
   public void i_add_a_new_owner_with_details() {
     owner = new Owner("OwnerID", "OwnerName", "OwnerEmail", "OwnerPhone", "OwnerLocation");
-    admin.addOwner(owner); // This method needs to be implemented in the Admin class
+    admin.addOwner(owner); 
   }
 
   @Then("the new owner should be added to the system")

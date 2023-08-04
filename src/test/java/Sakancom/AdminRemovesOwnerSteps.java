@@ -1,4 +1,4 @@
-package fall2023project;
+package Sakancom;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,13 +22,13 @@ public class AdminRemovesOwnerSteps {
   @Given("there is an existing owner")
   public void there_is_an_existing_owner() {
     owner = new Owner("OwnerID", "OwnerName", "OwnerEmail", "OwnerPhone", "OwnerLocation");
-    admin.addOwner(owner); // This method needs to be implemented in the Admin class
+    admin.addOwner(owner); 
     assertTrue(admin.getOwners().contains(owner));
   }
 
   @When("I remove the owner")
   public void i_remove_the_owner() {
-    admin.removeOwner(owner); // This method needs to be implemented in the Admin class
+    admin.removeOwner(owner); 
   }
 
   @Then("the owner should be removed from the system")

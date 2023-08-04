@@ -22,13 +22,12 @@ public class AdminViewsOwnersDetailsSteps {
 
   @When("I view all owners' details")
   public void i_view_all_owners_details() {
-    owners = admin.viewAllOwners(); // This method needs to be implemented in the Admin class
+    owners = admin.viewAllOwners(); 
   }
 
   @Then("I should see the details of all owners")
   public void i_should_see_the_details_of_all_owners() {
     assertNotNull(owners);
     assertFalse(owners.isEmpty());
-    // You can add more assertions here to check the details of the owners
   }
 }
