@@ -1,44 +1,26 @@
 package Sakancom.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Owner {
-	String id;
-	String name;
-	String email;
-	String phone;
-    String location;
-	public Owner(String id,String name,String email,String phone,String location) {
-		this.id=id;
-		this.email=email;
-		this.name=name;
-		this.phone=phone;
-		this.location=location;
-	}
-	  public void setName(String name) {
-	        this.name = name;
-	    }
+	private List<Owner> owners;
+    private List<House> ownedHousing;
 
-	    public void setUserName(String email) {
-	        this.email = email;
-	    }
+    public Owner(String ownerName) {
+        this.owners = new ArrayList<>();
+        this.ownedHousing = new ArrayList<>();
+    }
 
-	    public void setPhone(String phone) {
-	        this.phone = phone;
-	    }
+    public List<Owner> getOwnerName() {
+        return owners;
+    }
 
-	    public String getName() {
-	        return name;
-	    }
+    public void addHousing(House housing) {
+        ownedHousing.add(housing);
+    }
 
-	    public String getUserName() {
-	        return email;
-	    }
-
-
-	    public String getPhone() {
-	        return phone;
-	    }
-	    
-	    public String getLocation() {
-	        return location;
-	    }
+    public List<House> getHouses() {
+        return ownedHousing;
+    }	
 }

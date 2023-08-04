@@ -25,7 +25,7 @@ public void the_password_is(String string) {
 @Then("the admin login succeeds")
 public void the_admin_login_succeeds() {
 	ad.username=username;
-	ad.password=password;
+	ad.pass=password;
     b = ad.login(username,password);
     ad.setLoginState(true);
     assertTrue(ad.getLoginState());

@@ -1,44 +1,93 @@
 package Sakancom;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
 
-import Sakancom.util.MySakanat;
 import Sakancom.util.Reservation;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import Sakancom.util.ReservationSystem;
+
+import static org.junit.Assert.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class WatchReservation {
-	public MySakanat ms=new MySakanat();
-	boolean b;
-	String id;
+    private ReservationSystem reservationSystem;
 
+    @Before
+    public void setup() {
+        reservationSystem = new ReservationSystem();
+    }
 
-@Given("that this reservations are valid in the system")
-public void that_this_advertises_are_valid_in_the_system(io.cucumber.datatable.DataTable dataTable) {
-	ms.reservations.add(new Reservation("0","APARTMENT1",50));
-	ms.reservations.add(new Reservation("1","APARTMENT2",40));
-	ms.reservations.add(new Reservation("2","APARTMENT3",30));
-	ms.reservations.add(new Reservation("3","HOME1",30));
-	ms.reservations.add(new Reservation("4","HOME2",20));
-	ms.reservations.add(new Reservation("5","PAVILION",100));
-}
+    @Test
+    public void WatchReservations() {
+      
+        SimpleDateFormat d = new SimpleDateFormat("yyyy-mm-dd");
+        Date startDate1, startDate2;
+        Date endDate1, endDate2;
+        try {
+            startDate1 = d.parse("2023-07-10");
+            startDate2 = d.parse("2023-07-31");
+            endDate1 = d.parse("2023-07-31");
+            endDate2 = d.parse("2023-08-08");
+        } catch (ParseException e) {
+            fail("Failed");
+            return;
+        }
 
-@When("admin tries to watch for id {string}")
-public void admin_tries_to_watch_for_id(String string) {
-    id=string;
-    ms.watchReservation(id);
-    b=ms.reservationValid(id);
-    
-}
+        Reservation r1 = new Reservation("n1", "P1", startDate1, endDate1);
+        Reservation r2 = new Reservation("n2", "P2", startDate2, endDate2);
 
-@Then("watch success")
-public void watch_success() {
-	assertTrue(b);
-}
-@Then("watch failed")
-public void watch_failed() {
-	assertTrue(!b);
-}
+        
+        reservationSystem.addReservation(r1);
+        reservationSystem.addReservation(r2);
+
+        List<Reservation> allReservations = reservationSystem.getAllReservations();
+
+       
+        assertEquals(2, allReservations.size());
+        assertTrue(allReservations.contains(r1));
+        assertTrue(allReservations.contains(r2));
+    }
+
+    @Test
+    public void watchSpecificUser() {
+       
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        Date startDate1, startDate2, startDate3;
+        Date endDate1, endDate2, endDate3;
+        try {
+            startDate1 = sdf.parse("2023-07-20");
+            startDate2 = sdf.parse("2023-08-08");
+            startDate3 = sdf.parse("2023-08-13");
+            endDate1 = sdf.parse("2023-08-08");
+            endDate2 = sdf.parse("2023-08-13");
+            endDate3 = sdf.parse("2023-08-18");
+        } catch (ParseException e) {
+            fail("Failed");
+            return;
+        }
+
+        Reservation r1 = new Reservation("n1", "P1", startDate1, endDate1);
+        Reservation r2 = new Reservation("n2", "P2", startDate2, endDate2);
+        Reservation r3 = new Reservation("n1", "P3", startDate3, endDate3);
+
+        
+        reservationSystem.addReservation(r1);
+        reservationSystem.addReservation(r2);
+        reservationSystem.addReservation(r3);
+
+        List<Reservation> R1 = reservationSystem.getReservations("n1");
+        List<Reservation> R2 = reservationSystem.getReservations("n2");
+
+       
+        assertEquals(2, R1.size());
+        assertTrue(R1.contains(r1));
+        assertTrue(R1.contains(r3));
+
+        assertEquals(1, R2.size());
+        assertTrue(R2.contains(r2));
+    }
 }
