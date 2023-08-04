@@ -16,46 +16,46 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@wip
 Feature: View information about housing
   
 #don't forget to add a scanario for if he's a student 
-  @tag1
+  @wip
   Scenario: no available info not student
     Given he chose a housing 'number'
-    And he is not a 'student'
+    When he is not a 'student'
     
-    When housing 'number' is invalid
+    And housing 'number' is invalid
 
     Then show error message
      And show options for going back
     
-    @tag2
+    @wip
   Scenario:  available info not student
     Given he chose a housing 'number'
-    And he is not a 'student'
-    When housing 'number' is valid
+    When he is not a 'student'
+    And housing 'number' is valid
 
     Then show information about the housing
     And show options for booking or going back
     
-     @tag3
+     @wip
   Scenario: no available info student
     Given he chose a housing 'number'
-    And he is a 'student'
+   When he is a 'student'
     
-     When housing 'number' is invalid
+     And housing 'number' is invalid
       
 
     Then show error message
      And show options for going back
     
-      @tag4
+      @wip
   Scenario: available info student
     Given he chose a housing 'number'
-    And he is a 'student'
+    When he is a 'student'
     
-     When housing 'number' is valid
+    And housing 'number' is valid
 
     Then show information about the housing
      And show options for booking or going back

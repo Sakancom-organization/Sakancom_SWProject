@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@wip
 Feature: booking the housing
   
 
@@ -24,7 +24,7 @@ Feature: booking the housing
   Scenario: available booking
  
     
-    When he entres 'book'
+    When he chooses 'book'
    
     Then complete booking
     And show panel

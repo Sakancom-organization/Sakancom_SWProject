@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class tenantHomePage {
 	public static int choice;
+	public static int bookingFlag;
+	int housingnumb;
+	int userSSN;
     public tenantHomePage() {
 	
 }
@@ -11,15 +14,14 @@ public class tenantHomePage {
 		// TODO Auto-generated method stub
 		
 		System.out.print("\t Welcome tenant! \n"
-				+ "Choose what you want to see :\n"
-				+ "1. Available housing \n"
-				+ "2. Used furniture advertisment section");
+				+ "Choose what you want :\n"
+				+ "1. View vailable housing \n"
+				+ "2. Add used furniture for advertismen\n"
+				+ "3. View available used furniture");
 		
 		    Scanner in = new Scanner(System.in);  
 		     choice = in.nextInt() ;
+		     
 
 	}
-public int getChoice() {
-	return choice;
-}
 }

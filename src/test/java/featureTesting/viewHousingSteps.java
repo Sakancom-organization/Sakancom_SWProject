@@ -3,26 +3,30 @@ package featureTesting;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import sakancom.tenantHomePage;
 import sakancom.housing;
-import sakancom.tenant;
+import sakancom.user;
 import sakancom.database;
 
 
 public class viewHousingSteps {
 	
-	tenantHomePage obj1=new tenantHomePage();
 	database obj2=database.check();
-
+	Scanner myObj = new Scanner(System.in); 
+	static int housenum;
+	
+	
+	
 	@When("he entres {int}")
 	public void heEntres(Integer choice) {
-	  if (obj1.choice==1) assertEquals(true,true);
+	  if (tenantHomePage.choice==1) assertEquals(true,true);
 	}
 	@When("{int} housing available")
-	public void housingAvailable(Integer int1) {
+	public void housingNotAvailable(Integer int1) {
 	    if(obj2.availableHousing()==0) assertEquals(true,true);
 	}
 	@Then("he should see {string}")
@@ -33,7 +37,7 @@ public class viewHousingSteps {
 
 	@When("he entred {int}")
 	public void heEntred(Integer int1) {
-		 if (obj1.choice==1) assertEquals(true,true);
+		 if (tenantHomePage.choice==1) assertEquals(true,true);
 	}
 	@When("{string} housing available")
 	public void housingAvailable(String string) {
@@ -44,8 +48,12 @@ public class viewHousingSteps {
 	System.out.println("\tEntre the housig number to get more information!\n");
 	System.out.println("------------------------------------------------------------------\n");
 	System.out.println("| housing number | housing location |\n");
-	obj2.gethousing().forEach(null);
-		
+	for (int i=0;i < obj2.gethousing().size(); i++) {
+		System.out.print(obj2.gethousing().get(i));}
+		// and ask for a number 
+	System.out.println("Entre......");
+    String backS = myObj.nextLine();
+    //back=Integer.parseInt(backS);
 	
 	}
 

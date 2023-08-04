@@ -16,11 +16,11 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@wip
 Feature: Advertise housing
  
 
-  @tag1
+  
   Scenario: ask him to upload
     Given he chose 2 on the entrance menu
     
@@ -32,14 +32,9 @@ Feature: Advertise housing
     Then add the furniture to the data base to advertise it
 
 Scenario: show available advertisments 
-    Given he chose 2 on the entrance menu
+    Given he chose 3 on the entrance menu
     
-    When he entres the 'description' 
-    And he entres the 'price'
-    And he uploades the 'images'
-    
-    
-    Then add the furniture to the data base to advertise it
+    Then show available used furniture
 
   #@tag2
   #Scenario Outline: Title of your scenario outline
