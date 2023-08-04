@@ -8,11 +8,10 @@ import static org.junit.Assert.*;
 import Sakancom.util.Admin;
 
 public class AdminLogsInSteps {
-  Admin admin;
+  Admin admin = AdminCommonSteps.getAdmin();
 
   @Given("I am an admin")
   public void i_am_an_admin() {
-    admin = new Admin();
     assertNotNull(admin);
   }
 
@@ -26,4 +25,3 @@ public class AdminLogsInSteps {
     assertTrue(admin.getLoginState());
   }
 }
-

@@ -9,19 +9,16 @@ import java.util.List;
 
 import Sakancom.util.Admin;
 import Sakancom.util.Owner;
+
 public class AdminViewsOwnersDetailsSteps {
-  Admin admin;
+  AdminCommonSteps adminCommonSteps = new AdminCommonSteps();
   List<Owner> owners;
 
-  @Given("I am a logged-in admin")
-  public void i_am_a_logged_in_admin() {
-    admin = new Admin();
-    admin.setLoginState(true);
-    assertTrue(admin.getLoginState());
-  }
+ 
 
   @When("I view all owners' details")
   public void i_view_all_owners_details() {
+    Admin admin = adminCommonSteps.getAdmin();
     owners = admin.viewAllOwners(); 
   }
 
