@@ -5,7 +5,50 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Sakancom</name>
   
-  
+  -<properties>
+
+<!-- Set the Java version used by the compiler. -->
+
+
+<!-- Setting to Java 8 will work, in most cases, for installed -->
+
+
+<!-- Java versions >= 8. -->
+
+
+<maven.compiler.source>8</maven.compiler.source>
+
+<maven.compiler.target>8</maven.compiler.target>
+
+<failOnMissingWebXml>false</failOnMissingWebXml>
+
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+</properties>
+
+
+-<build>
+
+
+-<plugins>
+
+<!-- The Surefire Plugin is needed to run JUnit 5 tests with Maven -->
+
+
+
+-<plugin>
+
+<artifactId>maven-surefire-plugin</artifactId>
+
+<version>2.22.2</version>
+
+<configuration> </configuration>
+
+</plugin>
+
+</plugins>
+
+</build>
   <properties>
   <sonar.organization>sakancom-organization</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
