@@ -33,18 +33,19 @@ public class Admin {
         return logState;
     }
 
-    public boolean login(String username,String password) {
-        if(logState) {
-            return false;
+   public boolean login(String username, String password) {
+    if (logState) {
+        return false;
+    } else {
+        if (username.equals(this.username) && password.equals(this.password)) {
+            logState = true;
+            return true;
         } else {
-            if(username.equals("eman42kh@gmail.com") && password.equals("654321")) {
-                logState=true;
-                return true;
-            } else {
-                return false;
-            }
+            return false;
         }
     }
+}
+
 
     public void logOut() {
         if(logState) {
