@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Owner {
+	String id;
+	String name;
+	String phoneNumber;
+	String address;
+	
 	private List<Owner> owners;
     private List<House> ownedHousing;
 
@@ -12,7 +17,15 @@ public class Owner {
         this.ownedHousing = new ArrayList<>();
     }
 
-    public List<Owner> getOwnerName() {
+    public Owner(String id, String name, String phoneNumber, String address) {
+    	this.id=id;
+		this.name=name;
+		this.phoneNumber=phoneNumber;
+		this.address=address;
+
+	}
+
+	public List<Owner> getOwnerName() {
         return owners;
     }
 

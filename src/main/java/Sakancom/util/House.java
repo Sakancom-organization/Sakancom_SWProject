@@ -13,6 +13,9 @@ public class House {
     private List<House> house;
     private double monthlyRent;
     private boolean rentInclusive;
+    String id;
+    String name;
+    int price;
 
     public House() {
         this.photo = new ArrayList<>();
@@ -22,7 +25,13 @@ public class House {
         this.house = new ArrayList<>();
     }
 
-    public void addPhoto(String ph) {
+    public House(String id, String name, int price) {
+		this.id=id;
+		this.name=name;
+		this.price=price;
+	}
+
+	public void addPhoto(String ph) {
         photo.add(ph);
     }
 
@@ -87,5 +96,15 @@ public class House {
 
 	public List<Floor> getFloor() {
 		return floor;
+	}
+
+	public void setName(String newValue) {
+		this.name = name;
+		
+	}
+
+	public void setPrice(Integer valueOf) {
+		this.price = price;
+		
 	}
 }
